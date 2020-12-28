@@ -12,7 +12,6 @@ public class CarInteractions : MonoBehaviour
             {
                 transform.gameObject.GetComponent<CarController>().canMove = false;
                 StartCoroutine(Hong(other.transform.gameObject));
-                //Debug.Log("Hooooong!!!");
             }
         }
     }
@@ -28,12 +27,9 @@ public class CarInteractions : MonoBehaviour
         }
     }
 
-
     private IEnumerator Hong(GameObject car)
     {
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(4.5f);
         car.GetComponent<CarController>().canMove = true;
     }
-
-
 }

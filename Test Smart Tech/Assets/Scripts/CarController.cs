@@ -10,8 +10,6 @@ public class CarController: MonoBehaviour
     public float speed = 3f;
 
     public bool canMove = true;
-    public bool pointReached = false;
-
 
     void Awake()
     {
@@ -31,11 +29,11 @@ public class CarController: MonoBehaviour
         }
         if (nextPoint != null)
         {
-            CarMovingLogic();
+            MoveCar();
         }
 
     }
-    private void CarMovingLogic()
+    private void MoveCar()
     {
         transform.position += ((nextPoint.transform.position - currentPoint.transform.position).normalized * (speed * Time.deltaTime));  // movement logic
         transform.LookAt(nextPoint.transform.position, Vector3.up);   // rotation logic (turns around y axis)
@@ -52,8 +50,6 @@ public class CarController: MonoBehaviour
         {
             currentPoint = nextPoint;                                  // sets previously reached next point to current point
             nextPoint = currentPoint.GetRandomPoint();                  // sets new next point
-            pointReached = true;
         }
     }
-
 }
